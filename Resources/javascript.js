@@ -1,5 +1,6 @@
-const generateQuote = function () {
-    const quotes = [
+// Creating the array of quotes and authors to be used for the quote generator.
+    const generateQuote = function() {
+        const inspirationalQuotes = [
         {
             quote: "If I cannot do great things, I can do small things in a great way.",
             author: "Martin Luther King, Jr."
@@ -49,5 +50,16 @@ const generateQuote = function () {
             quote: "If I cannot do great things, I can do small things in a great way.",
             author: "Norman Vincent Peale"
         }
-    ]
+    ];
+
+//Targetting relevant id's in HTML
+let arrayIndex = Math.floor(Math.random() * inspirationalQuotes.length);
+document.getElementById("quote").innerHTML = inspirationalQuotes[arrayIndex].quote;
+document.getElementById("author").innerHTML = inspirationalQuotes[arrayIndex].author;
+}
+
+//Calling the generateQuote function when clicking the button
+window.onload = function() {
+    generateQuote();
+    document.getElementById("btn").addEventListener('click', generateQuote);
 }
